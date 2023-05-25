@@ -1,0 +1,253 @@
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .product-item {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    border: black solid 2px;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+  
+  .product-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+  
+  .product-item h3 {
+    margin-top: 10px;
+  }
+  
+  .product-item p {
+    margin-top: 5px;
+  }
+  
+  .product-item button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+.button-buy{
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.buttons{
+  margin-top: 20px;
+}
+
+  header{
+    background-color: #908b8b;
+    border: #696868 solid 2px;
+    margin-top: -20 auto;
+    padding: 20px;
+  }
+  
+  body{
+    margin: 0 auto;
+  }
+  
+  .button-logout{
+    background-color: #ee2544;
+    margin-left: 93%;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+  }
+
+
+
+
+  .button-logout:hover{
+    background-color: #908b8b;
+    transition: all 0.2s ease-in-out;
+  }
+
+.button-buy:hover{
+  color: rgb(201, 200, 200);
+  box-shadow: #a2cbf7 1px 1px 1px;
+
+  transition: all 0.2s ease-in-out;
+}
+
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.id{
+  font-size: 12px;
+}
+.price{
+  font-size: 20px;
+}
+.amount{
+  font-size: 15px;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logout-button {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logout-button:hover {
+  opacity: 0.8;
+}
+
+.logout-button:active {
+  opacity: 0.6;
+}
+
+.product{
+  font-weight: bold;
+}
+
+.button-admin{
+  text-decoration: none;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.button-admin:hover {
+  opacity: 0.8;
+}
+
+.button-admin:active {
+  opacity: 0.6;
+}
+
+.search{
+  margin-right: 10px;
+  width: 370px;
+  height: 25px;
+  background-color: #dad4d4;
+  border-radius: 8px;
+  border: black solid 1px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.search-box input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.search-box button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background-color: #45a049;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-select {
+  appearance: none;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #cde8d5;
+  color: #333;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #333;
+  pointer-events: none;
+}
+
+.enter{
+  padding: 5px 10px;
+  background-color: #445145;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.user-login{
+  position: relative;
+  left: 80px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}

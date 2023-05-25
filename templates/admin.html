@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin panel</title>
+</head>
+<body>
+    <form action="/admin" method="post">
+        <div class="add-user">
+            <h2>Add product</h2>
+            <input type="text" name="product-name" id="product-name" placeholder="product name">
+            <input type="text" name="product-price" id="product-price" placeholder="product price">
+            <input type="text" name="product-amount" id="product-amount" placeholder="product amount">
+            <input type="text" name="product-image" id="product-image" placeholder="Image name on server (example.png)">
+            <button type="submit" name="add-product">Add</button>
+            <button type="submit" name="add-product+3">Add +3</button>
+            <button type="submit" name="add-product-more">Add +?</button>
+
+    
+            <h2>Del product</h2>
+            <input type="text" name="product-name-id" id="product-name-id" placeholder="name or id">
+            <button type="submit" name="del-product">Del</button>
+
+    
+            <h2>Add user</h2>
+            <input type="text" name="user-login" id="user-login" placeholder="Login">
+            <input type="password" name="user-password" id="user-password" placeholder="Password:">
+            <button type="submit" name="add-user">Add</button>
+    
+            <h2>Del user</h2>
+            <input type="text" name="user-login-del" id="user-login-del" placeholder="Login">
+            <button type="submit" name="del-user">Del</button>
+    
+            <h2>Delete all</h2>
+            <button type="submit" name="del-all">Delete</button>
+        </div>
+    </form>
+</body>
+</html>

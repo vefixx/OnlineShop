@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Main shop</title>
+</head>
+<body>
+    <header>
+            <div class="container">
+              <div class="logo">Test name</div>
+
+              <form action="/redirect" method="POST">
+                <div class="select-wrapper">
+                  <select name="redirect_url" class="custom-select">
+                    <option value="/main">Главная</option>
+                    {% if admin %}
+                    <option value="/admin">Админ</option>
+                    {% endif %}
+                  </select>
+                  <div class="select-arrow"></div>
+                </div>
+                <input type="submit" value="Перейти" class="enter">
+              </form>
+
+              <form action="/search" method="post">
+                <div class="search-box">
+                    <input type="text" name="search" id="search" class="search" placeholder="Search..">
+                    <button type="submit" name="search">Найти</button>
+                </div>
+              </form>
+
+              <form action="/logout" method="POST">
+                <button type="submit" class="logout-button">Выйти</button>
+                {% if admin %}
+                <a href="/admin" class="button-admin">Панель</a>
+                {% endif %}
+              </form>
+              <p class="user-login"> {{user_login}}</p>
+              <h3>{{cart}}</h3>
+            </div>            
+    </header>
+
+    <div class="product-list">
+        {% for product in products %}
+        
+            <div class="product-item">
+              <img src="static\images\{{product[4]}}">
+              <h3>{{product[0]}}</h3>
+              <p class="price">Цена: <span class="product">{{product[1]}}</span> руб.</p>
+              <p class="amount">Наличие: <span class="product">{{product[2]}}</span> шт</p>
+              <p class="id">Идентификатор: <span class="product">{{product[3]}}</span> id</p>
+              <div class="buttons">
+                <a href="/addcart/{{ product[3] }}" class="button-buy">Добавить в корзину</a>
+                {% if admin %}
+                <a href="/delete/{{ product[3] }}" class="button-admin">Удалить</a>
+                {% endif %}
+              </div>
+            </div>
+        {% endfor %}    
+    </div> 
+</body>
+</html>

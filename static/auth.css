@@ -1,0 +1,85 @@
+body{
+    background: rgb(33, 33, 33);
+    color: rgb(255, 0, 0);
+}
+h2{
+    color: white;
+}
+.form-login{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 200px;
+    margin: 0 auto;
+    margin-top: 10%;
+    gap: 20px;
+    text-align: center;
+    border: 2px solid rgb(111, 208, 147);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(36, 36, 36);
+    transition: all 0.8s ease-in-out;
+    animation: rainbow-border 10s infinite;
+}
+::placeholder{
+    color: rgb(113, 112, 112);
+    opacity: 0.8;
+    font-size: 18px;
+}
+.login-f, .password-f{
+    height: 30px;
+    background-color: black;
+    color: wheat;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(177, 247, 203);
+}
+a{
+    text-decoration: none;
+    color: white;
+    border: 2px solid rgb(247, 177, 177);
+    border-radius: 7px;
+}
+.button-sign-in{
+    background-color: black;
+    color: white;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid rgb(177, 247, 203);
+}
+.button-sign-in:hover{
+    border: 2px solid rgb(111, 208, 147);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    color: rgb(111, 208, 147);
+}
+.login-f:hover, .password-f:hover{
+    background-color: rgb(42, 41, 41);
+    transition: all 0.2s ease-in-out;
+}
+
+.rainbow-text {
+    animation: rainbow 10s infinite;
+  }
+  
+  @keyframes rainbow {
+    0% { color: red; }
+    14% { color: orange; }
+    28% { color: yellow; }
+    42% { color: green; }
+    57% { color: blue; }
+    71% { color: indigo; }
+    85% { color: violet; }
+    100% { color: red; }
+  }
+
+  @keyframes rainbow-border {
+    0% { border-color: red; }
+    14% { border-color: orange; }
+    28% { border-color: yellow; }
+    42% { border-color: green; }
+    57% { border-color: blue; }
+    71% { border-color: indigo; }
+    85% { border-color: violet; }
+    100% { border-color: red; }
+  }
