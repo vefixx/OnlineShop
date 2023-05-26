@@ -38,7 +38,7 @@
             {% endif %}
           </form>
           <p class="user-login"> {{user_login}}</p>
-          <h3>{{cart}}</h3>
+          <p class="cart">{{cart}}</p>
         </div>
 
 </header>
@@ -47,7 +47,7 @@
     {% for product in products %}
     
         <div class="product-item">
-          <img src="static\images\{{product[4]}}">
+          <img src="static\images\{{product[4]}}" alt=":(">
           <h3>{{product[0]}}</h3>
           <p class="price">Цена: <span class="product">{{product[1]}}</span> руб.</p>
           <p class="amount">Наличие: <span class="product">{{product[2]}}</span> шт</p>
