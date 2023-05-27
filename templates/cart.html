@@ -15,7 +15,7 @@
               <form action="/redirect" method="POST">
                 <div class="select-wrapper">
                   <select name="redirect_url" class="custom-select">
-                    <option value="/cart">Корзина</option>
+                    <option value="/main">Главная</option>
                     {% if admin %}
                     <option value="/admin">Админ</option>
                     {% endif %}
@@ -53,7 +53,7 @@
               <p class="amount">Наличие: <span class="product">{{product[2]}}</span> шт</p>
               <p class="id">Идентификатор: <span class="product">{{product[3]}}</span> id</p>
               <div class="buttons">
-                <a href="/addcart/{{ product[3] }}" class="button-buy">Добавить в корзину</a>
+                <a href="/delcart/{{ product[3] }}" class="button-admin">Удалить из корзины</a>
                 {% if admin %}
                 <a href="/delete/{{ product[3] }}" class="button-admin">Удалить</a>
                 {% endif %}
