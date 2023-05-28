@@ -113,37 +113,34 @@ def admin():
 @app.route('/main', methods=['GET', 'POST'])
 def main():
     if 'is_authenticated' in session and session['is_authenticated']:
-        global user_login
         user_login = str(session['username'])
         cart = get_product_in_cart(user_login) #корзина юзера не чистым списком
         cart = total_product_in_cart(cart) #корзина юзера списком чистым списком
-        amount_cart = get_amount_in_cart(cart) #количество товаров в корзине юзера
-        print(cart, amount_cart)
+        products = get_product() #все продукты
+        product_name = get_name_product_cart(cart) #продукты которые в корзине
+        amount_cart = get_amount_cart_2(product_name) #количество товаров в корзине юзера
         if 'username' in session and session['username'] == 'admin':
             knopka_admin = True
-            products = get_product()
             return render_template('shop.html', products=products, admin = knopka_admin, user_login = user_login, cart = amount_cart)        
         else:
-            products = get_product()
             return render_template('shop.html', products=products, user_login = user_login, cart = amount_cart)
         
     else:
         return redirect('/login')
     
-
-
 @app.route('/search', methods = ['GET', 'POST'])
 def search():
+    knopka_admin = False
     if 'is_authenticated' in session and session['is_authenticated']:
         if 'username' in session and session['username'] == 'admin':
             knopka_admin = True
+        user_login = session['username']
         search = request.form['search']
         products = search_products(search)
         cart = get_product_in_cart(user_login) #корзина юзера не чистым списком
         cart = total_product_in_cart(cart) #корзина юзера списком чистым списком
+
         amount_cart = get_amount_in_cart(cart) #количество товаров в корзине юзера
-        print(search)
-        print(products)
         return render_template('search.html', products=products, admin = knopka_admin, user_login = user_login, cart = amount_cart)
     else:
         return redirect('/login')
@@ -159,19 +156,52 @@ def delete(product_id):
         else:
             return redirect('/main')
 
-@app.route('/addcart/<int:product_id>', methods = ['GET', 'POST'])
+@app.route('/addcart/<int:product_id>', methods=['GET', 'POST'])
 def addcart(product_id):
     if 'is_authenticated' in session and session['is_authenticated']:
-        old_products = get_product_in_cart(session['username'])
-        add_product_in_cart(user_login, product_id, old_products)
+        user_login = session['username']  # Получение значения user_login из сессии
+        old_products = get_product_in_cart(user_login)
+        print(old_products)
+        print(product_id)
+        print(user_login)
+        print(add_product_in_cart(user_login, product_id, old_products))
+        
 
     return redirect('/main')
+ 
+@app.route('/cart', methods=['GET', 'POST'])
+def cart():
+    if 'is_authenticated' in session and session['is_authenticated']:
+        user_login = str(session['username'])
+        cart = get_product_in_cart(user_login) #корзина юзера не чистым списком
+        cart = total_product_in_cart(cart) #корзина юзера списком чистым списком
+        products = get_name_product_cart(cart)
+        amount_cart = get_amount_cart_2(products) #количество товаров в корзине юзера
+        print(cart, amount_cart)
+        if 'username' in session and session['username'] == 'admin':
+            knopka_admin = True     
+            return render_template('cart.html', products=products, admin = knopka_admin, user_login = user_login, cart = amount_cart)        
+        else:
+            return render_template('cart.html', products=products, user_login = user_login, cart = amount_cart)
+        
+    else:
+        return redirect('/login')
+    
+
+@app.route('/delcart/<int:product_id>', methods=['GET', 'POST'])
+def delcart(product_id):
+    if 'is_authenticated' in session and session['is_authenticated']:
+        user_login = session['username']
+        remove_product_from_cart(user_login, product_id)
+    return redirect('/cart')
+
 
 
 @app.route('/redirect', methods=['POST'])
 def redirect_to_url():
     redirect_url = request.form['redirect_url']
     return redirect(redirect_url)
- 
+
+
 if __name__ == '__main__':
    app.run(debug=True)
